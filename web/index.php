@@ -1,11 +1,5 @@
 <?php
 
-/**
- * This file is part of the Frolik.com.
- *
- * (c) Max Meiden Dasuki <max@frolik.com>
- */
-
 require_once 'bootstrap.php';
 require_once 'Chat.php';
 
