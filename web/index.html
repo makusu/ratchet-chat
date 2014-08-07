@@ -1,0 +1,33 @@
+<script>
+var conn = new WebSocket('ws://localhost:1234');
+conn.onopen = function(e) {
+    console.log("Connection established!");
+};
+
+conn.onmessage = function(e) {
+    var conversation = document.getElementById("conversation");
+    var name = document.getElementById("name");
+
+    conversation.innerHTML = conversation.innerHTML + e.data;
+};
+
+function runScript(e) {
+    if (e.keyCode == 13) {
+        var name = document.getElementById("name");
+        var message = document.getElementById("message");
+        var conversation = document.getElementById("conversation");
+
+        var messageValue = name.value + ': ' + message.value + '<br/><br/>';
+        conversation.innerHTML = conversation.innerHTML + messageValue;
+        conn.send(messageValue);
+
+        message.value = '';
+    }
+}
+
+</script>
+
+<label for="name">Name: </label><input id="name" onkeypress="" /><br/>
+<label for="message">Message: </label><input id="message" onkeypress="return runScript(event)"  /><br/><br/>
+
+<div id="conversation" style="height: 500px; border: 1px solid black; overflow-y: scroll"></div>

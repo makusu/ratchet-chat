@@ -1,0 +1,10 @@
+{
+    "require": {
+        "cboden/ratchet": "~0.3",
+        "doctrine/dbal": "dev-master",
+        "silex/silex": "~1.2",
+        "symfony/class-loader": "~2.3",
+        "predis/service-provider": "dev-master",
+        "twig/twig": "1.*"
+    }
+}
